@@ -1,0 +1,17 @@
+<% 
+  const errorPage = true;
+  const title = '500 Server Error';
+%>
+<section class="error-page">
+  <div class="container">
+    <div class="error-content">
+      <h1>500</h1>
+      <h2>Server Error</h2>
+      <p><%= locals.msg || 'Something went wrong on our end. Please try again later.' %></p>
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">Go Home</a>
+        <a href="/contact" class="btn btn-secondary">Contact Support</a>
+      </div>
+    </div>
+  </div>
+</section>

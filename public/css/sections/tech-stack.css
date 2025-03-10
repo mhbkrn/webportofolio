@@ -1,0 +1,35 @@
+/* Tech Stack Section Styles */
+
+.tech-stack {
+  padding: 4rem 0;
+  background-color: var(--section-bg);
+}
+
+.tech-stack h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .tech-item img {
+  filter: brightness(0) invert(1) sepia(100%) saturate(600%) hue-rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    gap: 1.5rem;
+  }
+  
+  .tech-item {
+    width: 80px;
+  }
+}

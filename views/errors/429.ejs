@@ -1,0 +1,17 @@
+<%
+  const errorPage = true;
+  const title = '429 Too Many Requests';
+%>
+<section class="error-page">
+  <div class="container">
+    <div class="error-content">
+      <h1>429</h1>
+      <h2>Too Many Requests</h2>
+      <p><%= locals.msg || 'You have exceeded the rate limit. Please try again later.' %></p>
+      <div class="error-actions">
+        <a href="javascript:window.location.reload()" class="btn btn-primary">Try Again</a>
+        <a href="/" class="btn btn-secondary">Go Home</a>
+      </div>
+    </div>
+  </div>
+</section>

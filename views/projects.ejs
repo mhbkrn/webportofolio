@@ -1,0 +1,61 @@
+<section class="projects-header">
+  <div class="container">
+    <h1>My Projects</h1>
+    <p class="lead">Here are some of the projects I've worked on. Each project showcases different skills and technologies.</p>
+  </div>
+</section>
+
+<section class="projects-grid">
+  <div class="container">
+    <div class="filter-buttons">
+      <button class="filter-btn <%= currentCategory === 'all' ? 'active' : '' %>" data-category="all">All</button>
+      <% categories.forEach(category => { %>
+        <button class="filter-btn <%= currentCategory === category ? 'active' : '' %>" 
+                data-category="<%= category %>">
+          <%= category.charAt(0).toUpperCase() + category.slice(1) %>
+        </button>
+      <% }) %>
+    </div>
+    
+    <div class="project-items">
+      <% if (projects.length === 0) { %>
+        <div class="no-projects">
+          <p>No projects found in this category.</p>
+        </div>
+      <% } else { %>
+        <% projects.forEach(project => { %>
+          <div class="project-card" data-category="<%= project.category %>" style="opacity: 0;">
+            <div class="project-img">
+              <img src="<%= project.image %>" alt="<%= project.title %>">
+            </div>
+            <div class="project-info">
+              <h3><%= project.title %></h3>
+              <p><%= project.description %></p>
+              <div class="project-tech">
+                <% project.technologies.forEach(tech => { %>
+                  <span><%= tech %></span>
+                <% }) %>
+              </div>
+              <div class="project-links">
+                <a href="<%= project.githubLink %>" class="btn btn-sm" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="<%= project.liveLink %>" class="btn btn-sm" target="_blank" rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Interested in working together?</h2>
+    <p>I'm always open to discussing new projects or partnership opportunities.</p>
+    <a href="/contact" class="btn btn-primary">Get In Touch</a>
+  </div>
+</section>

@@ -1,0 +1,226 @@
+/* Navigation Styles */
+
+header {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+header.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+[data-theme="dark"] header {
+  background: linear-gradient(
+    110deg,
+    rgba(15, 23, 42, 0.7) 0%,
+    rgba(30, 41, 59, 0.8) 50%,
+    rgba(15, 23, 42, 0.7) 100%
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+  min-height: var(--header-height);
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;  /* Reduced from 3rem to 1.5rem */
+  margin: 0;
+  padding: 0 2rem;  /* Reduced from 3rem to 2rem */
+  list-style: none;
+}
+
+.nav-links li:not(:last-child) {
+  margin-right: 0;  /* Removed additional margin since we're using gap */
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-color);
+}
+
+.nav-links a.active {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+[data-theme="dark"] .nav-links a.active {
+  background-color: rgba(96, 165, 250, 0.2);
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 3rem;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Burger menu animation classes */
+.burger.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+  opacity: 0;
+}
+
+.burger.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 70px;
+    height: calc(100vh - 70px);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent bg for mobile nav */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    text-align: center;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  [data-theme="dark"] .nav-links {
+    background-color: rgba(15, 23, 42, 0.9); /* Dark semi-transparent bg for mobile nav */
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    opacity: 0;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .burger {
+    display: block;
+    right: 1rem; /* Adjust burger menu position */
+  }
+
+  /* Burger animation */
+  .burger.active .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.active .line2 {
+    opacity: 0;
+  }
+
+  .burger.active .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Animation for nav links */
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .nav-links li.animate {
+    animation: navLinkFade 0.5s ease forwards;
+  }
+
+  .theme-toggle {
+    right: auto; /* Reset right position */
+    left: 1rem;  /* Position on the left */
+  }
+}
+
+/* Admin navigation specific styles */
+.admin-nav {
+  justify-content: space-between;
+}
+
+.admin-nav .logo {
+  margin-right: auto;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+}

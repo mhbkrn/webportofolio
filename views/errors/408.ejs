@@ -1,0 +1,17 @@
+<%
+  const errorPage = true;
+  const title = '408 Request Timeout';
+%>
+<section class="error-page">
+  <div class="container">
+    <div class="error-content">
+      <h1>408</h1>
+      <h2>Request Timeout</h2>
+      <p><%= locals.msg || 'The server timed out waiting for the request to complete.' %></p>
+      <div class="error-actions">
+        <a href="javascript:window.location.reload()" class="btn btn-primary">Try Again</a>
+        <a href="/" class="btn btn-secondary">Go Home</a>
+      </div>
+    </div>
+  </div>
+</section>

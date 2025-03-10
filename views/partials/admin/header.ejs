@@ -1,0 +1,18 @@
+<header>
+  <div class="container">
+    <nav class="admin-nav">
+      <div class="logo">
+        <a href="/admin">Admin Panel</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/admin/projects" class="<%= locals.active === 'projects' ? 'active' : '' %>">Projects</a></li>
+        <li><a href="/admin/users" class="<%= locals.active === 'users' ? 'active' : '' %>">Users</a></li>
+        <li><a href="/" target="_blank">View Site</a></li>
+        <li class="admin-user">
+          <span>Welcome, <%= locals.adminUsername || 'Admin' %></span>
+        </li>
+        <li><a href="/admin/logout" class="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/typing-animation.js"></script>
+  <script src="/js/scroll-to-section.js"></script>
+  <script src="/js/scroll-nav.js"></script>
+  <script src="/js/scroll-animations.js"></script>
+  <script src="/js/project-filter.js"></script>
+  <% if (locals.errorPage || locals.error) { %>
+  <script src="/js/error-redirect.js"></script>
+  <% } %>
+</body>
+</html>

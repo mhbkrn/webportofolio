@@ -1,0 +1,58 @@
+/* Responsive Utilities */
+
+/* General responsive helpers */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+/* Container adjustments for different screen sizes */
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Adjustments for tablets */
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for mobile phones */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.3rem; }
+  
+  .hide-mobile {
+    display: none;
+  }
+  
+  .show-mobile {
+    display: block;
+  }
+  
+  /* General spacing adjustments for mobile */
+  section {
+    padding: 3rem 0;
+  }
+  
+  .tech-grid, .contact-grid, .project-items {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjustments for small mobile phones */
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  h1 { font-size: 1.8rem; }
+}

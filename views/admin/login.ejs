@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+  <title><%= title %> | Admin Panel</title>
+</head>
+<body>
+  <div class="container">
+    <div class="admin-login-container">
+      <div class="admin-login-form">
+        <h1 class="admin-login-title">Admin Login</h1>
+        
+        <% if (typeof error !== 'undefined') { %>
+          <div class="alert alert-danger">
+            <%= error %>
+          </div>
+        <% } %>
+        
+        <form action="/admin/login" method="POST">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              name="username" 
+              class="form-control" 
+              required 
+              autofocus
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-control" 
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </div>
+        </form>
+        
+        <div class="admin-login-footer">
+          <a href="/" class="back-to-website">Back to Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

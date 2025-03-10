@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="admin-header">
+    <h1>Edit Admin User</h1>
+    <a href="/admin/users" class="btn btn-secondary">Back to Users</a>
+  </div>
+
+  <div class="admin-content">
+    <div class="admin-form">
+      <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger">
+          <%= error %>
+        </div>
+      <% } %>
+
+      <form action="/admin/users/edit/<%= adminUser._id %>" method="POST">
+        <div class="form-group">
+          <label for="username">Username <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            class="form-control" 
+            required 
+            value="<%= adminUser.username %>"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-control"
+          >
+          <small class="form-text text-muted">Leave blank to keep current password</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-control"
+            value="<%= adminUser.email || '' %>"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            class="form-control"
+            value="<%= adminUser.fullName || '' %>"
+          >
+        </div>
+        
+        <% if (adminUser._id.toString() === locals.adminId) { %>
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i> You are editing your own account. Changes to your username will take effect after your next login.
+          </div>
+        <% } %>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Update Admin User</button>
+          <a href="/admin/users" class="btn btn-light">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

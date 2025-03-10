@@ -1,0 +1,20 @@
+<header>
+  <div class="container">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/" class="<%= locals.active === 'home' ? 'active' : '' %>">Home</a></li>
+        <li><a href="/about" class="<%= locals.active === 'about' ? 'active' : '' %>">About</a></li>
+        <li><a href="/projects" class="<%= locals.active === 'projects' ? 'active' : '' %>">Projects</a></li>
+        <li><a href="/contact" class="<%= locals.active === 'contact' ? 'active' : '' %>">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </div>
+</header>

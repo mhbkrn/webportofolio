@@ -1,0 +1,322 @@
+/* Projects Section Styles */
+
+.featured-projects, .projects-grid {
+  padding: 4rem 0;
+  background-color: var(--section-bg);
+}
+
+.featured-projects h2, .projects-header h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.featured-projects .project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-projects .project-img {
+  height: 200px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.featured-projects .project-img img {
+  border-radius: 8px 8px 0 0;
+}
+
+.featured-projects .project-info {
+  padding: 0 1.5rem 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-projects .project-tech {
+  margin: 1rem 0;
+}
+
+.featured-projects .project-links {
+  margin-top: auto;
+}
+
+.more-projects {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Projects Page Styles */
+.projects-header {
+  padding: 8rem 0 2rem;
+  text-align: center;
+  background: var(--hero-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    -45deg, 
+    var(--gradient-primary),
+    var(--gradient-highlight),
+    var(--gradient-accent),
+    var(--gradient-secondary)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift var(--color-shift-duration) ease infinite;
+  opacity: 0.8;
+  z-index: -1;
+  filter: saturate(1.5) brightness(1.1);
+}
+
+/* Filter button styles with improved hover and active states */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 25px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Updating hover state for better readability */
+.filter-btn:hover {
+  color: white;
+  background-color: rgba(var(--primary-rgb), 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+  border-color: var(--primary-color);
+}
+
+/* Added active state for better user feedback */
+.filter-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(var(--primary-rgb), 0.5);
+}
+
+/* Keep the active class styling */
+.filter-btn.active {
+  background: linear-gradient(
+    90deg,
+    var(--gradient-primary),
+    var(--gradient-secondary)
+  );
+  background-size: 200% 100%;
+  animation: gradientMovement var(--animation-speed-fast) ease infinite;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove the previous hover effect with ::before */
+.filter-btn::before {
+  content: none;
+}
+
+.no-projects {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.project-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 200% 200%;
+  animation: gradientMovement var(--animation-speed-medium) ease infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  filter: saturate(1.5) brightness(1.1);
+}
+
+.project-card:hover::before {
+  opacity: 0.85;
+}
+
+.project-card .project-img,
+.project-card .project-info {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.cta {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    -45deg, 
+    var(--gradient-accent),
+    var(--gradient-primary)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift var(--color-shift-duration) ease infinite;
+  opacity: 0.05;
+  z-index: 0;
+  filter: saturate(1.5) brightness(1.1);
+}
+
+.cta h2 {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta p {
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta .btn {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    var(--gradient-primary),
+    var(--gradient-secondary)
+  );
+  background-size: 200% 100%;
+  animation: gradientMovement var(--animation-speed-medium) ease infinite;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta .btn:hover {
+  color: white; /* Ensure text stays white for contrast */
+  filter: brightness(1.15); /* Add brightness to indicate hover state */
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.4);
+}
+
+/* Add active state for when CTA button is clicked */
+.cta .btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.5);
+  filter: brightness(0.95); /* Slightly darker when clicked */
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-items {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}

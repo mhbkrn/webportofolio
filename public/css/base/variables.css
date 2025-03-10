@@ -1,0 +1,176 @@
+/* CSS Variables */
+
+:root {
+  /* Light theme variables */
+  --primary-color: #1d4294;
+  --secondary-color: #6c757d;
+  --dark-color: #343a40;
+  --light-color: #e5eef7;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --bg-color: #ffffff;
+  --text-color: #343a40;
+  --card-bg: #ffffff;
+  --border-color: #ddd;
+  --header-bg: #ffffff;
+  --hero-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --tech-bg: #f8f9fa;
+  --card-hover-shadow: rgba(0, 0, 0, 0.2);
+  --section-bg: #ffffff;
+  --tech-icon-filter: none;
+
+  /* Layout */
+  --container-width: 1200px;
+  --container-padding: 1rem;
+  --header-height: 60px;
+  --section-padding: 4rem 0;
+
+  /* Enhanced Gradient Colors - Updated for color-changing effects */
+  --gradient-primary: hsla(210, 100%, 65%, 0.8);
+  --gradient-secondary: hsla(260, 80%, 60%, 0.7);
+  --gradient-accent: hsla(160, 90%, 62%, 0.7);
+  --gradient-highlight: hsla(20, 100%, 72%, 0 .6);
+  --glass-overlay: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Animation speeds */
+  --animation-speed-slow: 15s;
+  --animation-speed-medium: 8s;
+  --animation-speed-fast: 4s;
+  
+  /* Color shift animation properties */
+  --color-shift-duration: 20s;
+  --color-shift-timing: ease-in-out;
+}
+
+[data-theme="dark"] {
+  --primary-color: #e56000f5;
+  --secondary-color: #9ca3af;
+  --dark-color: #f3f4f6;
+  --light-color: #1f2937;
+  --bg-color: #0f172a;
+  --text-color: #f3f4f6;
+  --card-bg: #1e293b;
+  --border-color: #374151;
+  --header-bg: #1e293b;
+  --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --tech-bg: #1e293b;
+  --card-hover-shadow: rgba(11, 47, 92, 0.2);
+  --section-bg: #0f172a;
+  --tech-icon-filter: brightness(0) invert(1);
+
+  /* Dark Theme Enhanced Gradient Colors */
+  --gradient-primary: hsl(0, 0%, 100%);
+  --gradient-secondary: hsl(45, 73%, 53%);
+  --gradient-accent: hsla(196, 76%, 58%, 0.65);
+  --gradient-highlight: hsla(280, 85%, 60%, 0.55);
+  --glass-overlay: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* Base transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Container styles */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+/* Enhanced color-changing animation with CSS custom properties animation */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    animation: colorShift var(--color-shift-duration) infinite alternate var(--color-shift-timing);
+  }
+  
+  [data-theme="dark"] {
+    animation: darkColorShift var(--color-shift-duration) infinite alternate var(--color-shift-timing);
+  }
+}
+
+/* Color shifting animations */
+@keyframes colorShift {
+  0% {
+    --gradient-primary: hsla(210, 100%, 65%, 0.8);
+    --gradient-secondary: hsla(260, 80%, 60%, 0.7);
+    --gradient-accent: hsla(160, 90%, 62%, 0.7);
+    --gradient-highlight: hsla(20, 100%, 72%, 0.6);
+  }
+  20% {
+    --gradient-primary: hsla(20, 100%, 65%, 0.8);
+    --gradient-secondary: hsla(210, 80%, 60%, 0.7);
+    --gradient-accent: hsla(260, 90%, 62%, 0.7);
+    --gradient-highlight: hsla(160, 100%, 72%, 0.6);
+  }
+  40% {
+    --gradient-primary: hsla(160, 100%, 65%, 0.8);
+    --gradient-secondary: hsla(20, 80%, 60%, 0.7);
+    --gradient-accent: hsla(210, 90%, 62%, 0.7);
+    --gradient-highlight: hsla(260, 100%, 72%, 0.6);
+  }
+  60% {
+    --gradient-primary: hsla(260, 100%, 65%, 0.8);
+    --gradient-secondary: hsla(160, 80%, 60%, 0.7);
+    --gradient-accent: hsla(20, 90%, 62%, 0.7);
+    --gradient-highlight: hsla(210, 100%, 72%, 0.6);
+  }
+  80% {
+    --gradient-primary: hsla(300, 100%, 65%, 0.8);
+    --gradient-secondary: hsla(260, 80%, 60%, 0.7);
+    --gradient-accent: hsla(210, 90%, 62%, 0.7);
+    --gradient-highlight: hsla(160, 100%, 72%, 0.6);
+  }
+  100% {
+    --gradient-primary: hsla(210, 100%, 65%, 0.8);
+    --gradient-secondary: hsla(260, 80%, 60%, 0.7);
+    --gradient-accent: hsla(160, 90%, 62%, 0.7);
+    --gradient-highlight: hsla(20, 100%, 72%, 0.6);
+  }
+}
+
+@keyframes darkColorShift {
+  0% {
+    --gradient-primary: hsla(220, 85%, 45%, 0.75);
+    --gradient-secondary: hsla(260, 85%, 55%, 0.65);
+    --gradient-accent: hsla(180, 80%, 45%, 0.65);
+    --gradient-highlight: hsla(280, 85%, 60%, 0.55);
+  }
+  20% {
+    --gradient-primary: hsla(260, 85%, 45%, 0.75);
+    --gradient-secondary: hsla(180, 80%, 50%, 0.65);
+    --gradient-accent: hsla(320, 75%, 45%, 0.65);
+    --gradient-highlight: hsla(220, 85%, 45%, 0.55);
+  }
+  40% {
+    --gradient-primary: hsla(200, 85%, 40%, 0.75);
+    --gradient-secondary: hsla(320, 80%, 45%, 0.65);
+    --gradient-accent: hsla(220, 85%, 45%, 0.65);
+    --gradient-highlight: hsla(260, 85%, 50%, 0.55);
+  }
+  60% {
+    --gradient-primary: hsla(320, 80%, 45%, 0.75);
+    --gradient-secondary: hsla(220, 85%, 45%, 0.65);
+    --gradient-accent: hsla(260, 85%, 50%, 0.65);
+    --gradient-highlight: hsla(180, 80%, 45%, 0.55);
+  }
+  80% {
+    --gradient-primary: hsla(290, 85%, 40%, 0.75);
+    --gradient-secondary: hsla(230, 80%, 50%, 0.65);
+    --gradient-accent: hsla(180, 85%, 40%, 0.65);
+    --gradient-highlight: hsla(220, 85%, 45%, 0.55);
+  }
+  100% {
+    --gradient-primary: hsla(220, 85%, 45%, 0.75);
+    --gradient-secondary: hsla(260, 85%, 55%, 0.65);
+    --gradient-accent: hsla(180, 80%, 45%, 0.65);
+    --gradient-highlight: hsla(280, 85%, 60%, 0.55);
+  }
+}

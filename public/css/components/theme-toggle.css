@@ -1,0 +1,43 @@
+/* Theme Toggle Button */
+
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.theme-toggle i {
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(180deg);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: var(--card-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .theme-toggle {
+    margin-right: 1rem;
+  }
+}

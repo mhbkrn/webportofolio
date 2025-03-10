@@ -1,0 +1,90 @@
+<section class="hero">
+  <div class="hero-bg glass-gradient"></div>
+  <div class="container">
+    <div class="hero-content fade-in">
+      <h1 class="fade-in delay-1">Hi, I'm <span class="typing-text"></span><span class="cursor">|</span></h1>
+      <p class="fade-in delay-2">I build modern, responsive web applications using cutting-edge technologies.</p>
+    </div>
+  </div>
+  <div class="scroll-indicator fade-in delay-3">
+    <p>Scroll Down</p>
+    <span class="scroll-arrow">
+      <i class="fas fa-chevron-down"></i>
+    </span>
+  </div>
+</section>
+
+<section class="tech-stack">
+  <div class="container">
+    <h2 class="fade-in">Technologies I Work With</h2>
+    <div class="tech-grid">
+      <div class="tech-item fade-in delay-1">
+        <i class="fab fa-html5"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="tech-item fade-in delay-1">
+        <i class="fab fa-css3-alt"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="tech-item fade-in delay-2">
+        <i class="fab fa-js"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="tech-item fade-in delay-2">
+        <i class="fab fa-node-js"></i>
+        <span>Node.js</span>
+      </div>
+      <div class="tech-item fade-in delay-3">
+        <i class="fab fa-git-alt"></i>
+        <span>Git</span>
+      </div>
+      <div class="tech-item fade-in delay-3">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </div>
+      <div class="tech-item fade-in delay-4">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+        <span>MongoDB</span>
+      </div>
+      <div class="tech-item fade-in delay-4">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js">
+        <span>Express.js</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-projects">
+  <div class="container">
+    <h2 class="fade-in">Featured Projects</h2>
+    <div class="services">
+      <% featuredProjects.forEach(project => { %>
+        <div class="service-item project-card fade-in delay-1">
+          <div class="project-img">
+            <img src="<%= project.image %>" alt="<%= project.title %>">
+          </div>
+          <div class="project-info">
+            <h3><%= project.title %></h3>
+            <p><%= project.description %></p>
+            <div class="project-tech">
+              <% project.technologies.forEach(tech => { %>
+                <span><%= tech %></span>
+              <% }) %>
+            </div>
+            <div class="project-links">
+              <a href="<%= project.githubLink %>" class="btn btn-sm" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="<%= project.liveLink %>" class="btn btn-sm" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    <div class="more-projects fade-in delay-4">
+      <a href="/projects" class="btn btn-primary">View All Projects</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<%
+  const errorPage = true;
+  const title = '405 Method Not Allowed';
+%>
+<section class="error-page">
+  <div class="container">
+    <div class="error-content">
+      <h1>405</h1>
+      <h2>Method Not Allowed</h2>
+      <p><%= locals.msg || 'The requested method is not allowed for this URL.' %></p>
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">Go Home</a>
+        <a href="/contact" class="btn btn-secondary">Contact Support</a>
+      </div>
+    </div>
+  </div>
+</section>
